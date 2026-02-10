@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOST QR - Modern & Fun</title>
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+</head>
+
+<body>
+    {% if messages %}
+    <div class="messages-container">
+        {% for message in messages %}
+            <div class="message-box {{ message.tags }}">
+                <p>{{ message }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="hero-container">
+        <img src="{% static 'images/lostqrlogo.png' %}" width="310px" height="310px" alt="LostQR">
+        
+        <h1 style="font-size: 2.5rem; margin: 10px 0;">Kaybolan Hiçbir Şey <br> <span style="color:#a29bfe">Kaybolmuş Sayılmaz.</span></h1>
+        <p class="slogan">Eşyalarınıza bir kimlik kazandırın, bulanlar size tek tıkla ulaşsın.</p>
+
+        <div class="button-group">
+            <a href="{% url 'signup' %}" style="text-decoration: none;">
+                <button class="animated-button">
+                    <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                    </svg>
+                    <span class="text">Kayıt Ol</span>
+                    <span class="circle"></span>
+                    <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                    </svg>
+                </button>
+            </a>
+            
+            <br /><br />
+
+            <a href="{% url 'login' %}" style="text-decoration: none;">
+                <button class="animated-button">
+                    <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                    </svg>
+                    <span class="text">Giriş Yap</span>
+                    <span class="circle"></span>
+                    <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                    </svg>
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <div class="feature-title">Hızlıca Oluştur</div>
+            <div class="feature-desc">Profilini oluştur, sana özel QR kodunu saniyeler içinde indir.</div>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🏷️</div>
+            <div class="feature-title">Eşyana Yapıştır</div>
+            <div class="feature-desc">QR kodunu telefonuna, cüzdanına veya anahtarlığına yapıştır.</div>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <div class="feature-title">Güvenle Geri Al</div>
+            <div class="feature-desc">Bulan kişi kodu okuttuğunda, bilgilerini görerek sana ulaşsın.</div>
+        </div>
+    </div>
+</body>
+</html>

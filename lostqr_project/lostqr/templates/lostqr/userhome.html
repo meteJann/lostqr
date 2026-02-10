@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate QR</title>
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/userhomepage.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="title">Generate QR</div>
+
+            <form class="form-grid" method="POST" action="">
+                {% csrf_token %}
+
+                <div class="info-item">
+                    <strong>Username</strong>
+                    <input type="text" name="username" placeholder="Kullanıcı adınız" required>
+                </div>
+
+                <div class="info-item">
+                    <strong>Email</strong>
+                    <input type="email" name="mail" placeholder="Mail adresiniz" required>
+                </div>
+
+                <div class="info-item">
+                    <strong>Phone Number</strong>
+                    <input type="tel" name="phone" placeholder="05xxxxxxxxx" required>
+                </div>
+
+                <div class="info-item">
+                    <strong>Social Media</strong>
+                    <input type="text" name="social_media" placeholder="Nick veya link yazabilirsin">
+                </div>
+
+                <div class="info-item full">
+                    <strong>Message</strong>
+                    <textarea name="message" rows="4" placeholder="Görünmesini istediğiniz mesaj"></textarea>
+                </div>
+
+                <button type="submit" class="generate-btn full">Generate QR</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

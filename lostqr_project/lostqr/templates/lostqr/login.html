@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/loginpage.css' %}">
+    <title>Login</title>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="glass-card auth-card">
+            <h2 class="auth-title">Login</h2>
+
+            {% if messages %}
+            <div class="glass-message-container">
+                {% for message in messages %}
+                <div class="glass-message">
+                    <div class="message-left">
+                        <span class="icon">⚠️</span>
+                        <p>{{ message }}</p>
+                    </div>
+                    <span class="close-btn" onclick="this.parentElement.style.display='none'">&times;</span>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <form class="auth-form" method="POST">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input type="text" name="username" placeholder="Username" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Let's Go!</button>
+            </form>
+            <div class="auth-footer">
+                <p>Hesabın yok mu?</p>
+                <a href="{% url 'signup' %}" class="btn btn-outline-small">Kayıt Ol</a>
+                <a href="{% url 'home' %}" class="btn btn-outline-small">Ana Sayfaya Don</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

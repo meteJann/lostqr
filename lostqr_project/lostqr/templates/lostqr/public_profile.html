@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>LostQR | Eşya Sahibi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {% load static %}
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'css/publichomepage.css' %}">
+</head>
+
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="{% static 'images/lostqrlogo.png' %}" alt="LostQR Logo">
+    </div>
+
+    <div class="title">
+      Bu eşya <span style="color:#a29bfe">{{ profile.username }}</span>’a ait
+    </div>
+
+    <div class="card">
+      <div class="info">
+        📛 <strong>İsim Soyisim:</strong> {{ profile.username }}
+      </div>
+      <div class="info">
+        📞 <strong>Telefon:</strong>
+        <a href="tel:{{ profile.phone }}" style="text-decoration: none; color: inherit;">
+          {{ profile.phone }}
+        </a>
+      </div>
+      <div class="info">
+        📩 <strong>Email:</strong>
+        <a href="mailto:{{ profile.mail }}" style="text-decoration: none; color: inherit;">
+          {{ profile.mail }}
+      </div>
+      <div class="info">
+        🌐 <strong>Social Media:</strong>
+        <a href="tel:{{ profile.social_media }}" style="text-decoration: none; color: inherit;">
+          {{ profile.social_media }}
+      </div>
+      <div class="info">
+        💬 <strong>Mesaj:</strong>
+        <a href="tel:{{ profile.message }}" style="text-decoration: none; color: inherit;">
+          {{ profile.message }}
+      </div>
+    </div>
+
+    <div class="footer">
+      Kişisel bilgileriniz LostQR sistemi ile korunmaktadır.
+    </div>
+    <div class="action">
+      <a href="{% url 'logout' %}" class="btn btn-logout">Çıkış Yap</>
+
+    </div>
+
+  </div>
+</body>
+
+</html>

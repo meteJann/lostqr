@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR VIEW - LostQR</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/qrviewpage.css' %}">
+</head>
+
+<body>
+    <div class="page">
+        <div class="result-container">
+            <div class="glass-card">
+
+                <div class="left-content">
+                    <div class="status-header">
+                        <h2>QR Kodun Hazır!</h2>
+                        <p>Aşağıdaki kodu kaydedip eşyalarının üzerine yapıştırabilirsin.</p>
+                    </div>
+                    <div class="qr-display">
+                        <img src="/media/{{ qr_path }}" alt="LostQR">
+                    </div>
+                </div>
+
+                <div class="right-content">
+                    <div class="preview-section">
+                        <p class="preview-text">QR kod şu linke yönlendiriyor:</p>
+                        <a href="{% url 'public' profile_id=profile.id %}" target="_blank" class="btn btn-outline"> 🔗
+                            Yönlendirme Sayfasına Git
+                        </a>
+                    </div>
+
+                    <div class="action-buttons">
+                        <a href="{{ qr_code_url }}" download="my_lost_qr.png" class="btn btn-download">📥 QR'ı İndir</a>
+
+                        <a href="{% url 'userhome' %}" class="btn btn-edit">⚙️ Bilgileri Düzenle</a>
+
+                        <a href="{% url 'logout' %}" class="btn btn-logout">Çıkış Yap</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
